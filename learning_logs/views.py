@@ -10,7 +10,7 @@ def index(request):
     return render(request, "learning_logs/index.html")
 
 
-@login_required
+@login_required(login_url="learning_logs/login.html")
 def topics(request):
     """Show all topics"""
     topics = Topic.objects.filter(owner=request.user).order_by('date_added')
